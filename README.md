@@ -56,4 +56,4 @@ Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para ma
 
 ---
 
-Desenvolvido por [Seu Nome] - 2025
+Desenvolvido por [Raylander Silva de Sousa] - 2025
