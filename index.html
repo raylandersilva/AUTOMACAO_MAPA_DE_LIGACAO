@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAPA DE LIGAÇÃO</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+    <div class="container">
+        <button onclick="visualizarDesvios()">👁️ Visualizar Desvios</button>
+        <!-- Popup de visualização de desvios personalizados -->
+        <div id="popup-visualizacao" class="popup-overlay" style="display: none;">
+            <div class="popup-content">
+                <button id="btn-add-desvio" title="Adicionar desvio personalizado">➕ Adicionar desvio personalizado</button>
+                <button onclick="exportarDesviosComoJS()">💾 Exportar desvios personalizado</button>
+                <button class="popup-close" onclick="fecharPopup()">❌</button>
+                <h3>Desvios Personalizados</h3>
+                <div id="lista-desvios-visualizacao"></div>
+            </div>
+        </div>
+
+        <h1 style="margin-top: 30px;">MAPA DE LIGAÇÃO</h1>
+        <form id="meuFormulario">
+            <div class="form-group">
+                <label>EQTL:</label>
+                <div class="radio-options">
+                    <label><input type="radio" id="radio-button" name="eqtl" value="MA"> MA</label>
+                    <label><input type="radio" id="radio-button" name="eqtl" value="PA"> PA</label>
+                    <label><input type="radio" id="radio-button" name="eqtl" value="PI"> PI</label>
+                    <label><input type="radio" id="radio-button" name="eqtl" value="AL"> AL</label>
+                    <label><input type="radio" id="radio-button" name="eqtl" value="AP"> AP</label>
+                    <label><input type="radio" id="radio-button" name="eqtl" value="GO"> GO</label>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label for="mapadeligacao">MAPA DE LIGAÇÃO:</label>
+                <input type="text" id="mapadeligacao" name="mapadeligacao" required>
+            </div>
+            <div class="form-group">
+                <label for="telefone">TELEFONE:</label>
+                <input type="number" id="telefone" name="telefone" required>
+            </div>
+
+            <div class="form-group">
+                <label for="cc_uc">CC / UC:</label>
+                <input type="number" id="cc_uc" name="cc_uc" required>
+            </div>
+
+            <div class="form-group">
+                <label for="protocolo">PROTOCOLO:</label>
+                <input type="text" id="protocolo" name="protocolo" required>
+            </div>
+
+            <div class="form-group">
+                <label for="servico">SERVIÇO:</label>
+                <input type="text" id="servico" name="servico" required>
+            </div>
+
+            <div class="form-group">
+                <label for="idChamada">ID CHAMADA:</label>
+                <input type="text" id="idChamada" name="idChamada" required>
+            </div>
+
+            <div id="desvios-container"
+                style="border: 1px solid white;border-radius: 18px;padding: 11px;background-color: blue;">
+                <div class="form-group">
+                    <label for="pesquisarDesvio">Pesquisar Desvio:</label>
+                    <input type="text" id="pesquisarDesvio" oninput="filtrarDesvios(this.value)" style="width: 300px;">
+                </div>
+                <div class="form-group" id="seletorDesvioContainer">
+                    <label for="seletorDesvio">Selecionar Desvio:</label>
+                    <select id="seletorDesvio">
+                        <option value="">Selecione um desvio</option>
+                    </select>
+                    <button type="button"
+                        style="left: 0;right: 0;margin: auto;display: block;width: 100px;height: 32px;margin-top: 10px;background: green;color: white;border-radius: 15px;box-shadow: 1px 1px 9px 1px black;"
+                        onclick="adicionarDesvioSelecionado()">Adicionar</button>
+                </div>
+
+                <div id="lista-desvios-adicionados"></div>
+            </div>
+
+
+            <div class="button-group">
+                <button type="submit" id="copiar-formulario">Copiar Formulário</button>
+                <button type="button" id="limpar-formulario" onclick="limparFormulario()">Limpar Formulário</button>
+            </div>
+        </form>
+    </div>
+    <footer class="copyright">
+        <p>&copy; 2024 Raylander Silva de Sousa. Todos os direitos reservados.</p>
+        <p>
+            Telefone/Whatsapp► <a href="tel:+5586995204303">(86) 995204303</a> -
+            Email► <a href="mailto:raylander56@hotmail.com">raylander56@hotmail.com</a>
+        </p>
+    </footer>
+    <script src="desvios.js"></script>
+    <script src="script.js"></script>
+</body>
+
+</html>
